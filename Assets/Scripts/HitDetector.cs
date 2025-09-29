@@ -8,7 +8,12 @@ public class HitDirector : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-
+            
+            EnemyController enemycontroller = other.GetComponent<EnemyController>();
+            if(enemycontroller != null)
+            {
+                enemycontroller.GotHit();
+            }
 
         }
     }
