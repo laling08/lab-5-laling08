@@ -7,7 +7,7 @@ public class PlayerAnimatorController : MonoBehaviour
 {
     private Animator animator;
     private PlayerMovement movement;
-     private Rigidbody rb;
+    private Rigidbody rb;
 
 
     public void Start()
@@ -22,11 +22,17 @@ public class PlayerAnimatorController : MonoBehaviour
     {
         animator.SetFloat("CharacterSpeed", rb.velocity.magnitude);
         animator.SetBool("IsGrounded", movement.IsGrounded);
+        animator.SetBool("IsFalling", !movement.IsGrounded);
        
         if (Input.GetButtonUp("Fire1"))
         {
             animator.SetTrigger("doRoll");
         }
+        if(Input.GetButtonUp("Fire2"))
+        {
+            animator.SetTrigger("doPunch");
+        }
+        
     }
 }
 
